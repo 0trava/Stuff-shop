@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Stuff-shop/static/css/main.c001750a.css",
+    "main.js": "/Stuff-shop/static/js/main.859d6903.js",
+    "static/media/computer.png": "/Stuff-shop/static/media/computer.5e56530d0ea3793fd73d.png",
+    "static/media/avatar.jpg": "/Stuff-shop/static/media/avatar.4bc3b938691acbda7100.jpg",
+    "static/media/devices.png": "/Stuff-shop/static/media/devices.a0974f63230d0b90cbec.png",
+    "static/media/shoe.png": "/Stuff-shop/static/media/shoe.db601c8f04844976b606.png",
+    "static/media/logo.svg": "/Stuff-shop/static/media/logo.fb6afde46b43989ab58d298634d1c757.svg",
+    "index.html": "/Stuff-shop/index.html",
+    "main.c001750a.css.map": "/Stuff-shop/static/css/main.c001750a.css.map",
+    "main.859d6903.js.map": "/Stuff-shop/static/js/main.859d6903.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c001750a.css",
+    "static/js/main.859d6903.js"
+  ]
+}
