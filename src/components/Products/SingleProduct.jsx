@@ -20,13 +20,13 @@ const SingleProduct = () => {
         if (!isFetching && !isLoading && !isSuccess) {
             navigate(ROUTES.HOME);
         }
-    }, [isFetching, isLoading, isSuccess])
+    }, [isFetching, isLoading, isSuccess, navigate])
 
     useEffect(() =>{
         if (data) {
             dispatch(getRelatedProducts(data.category.id))
         }
-    }, [data])
+    }, [data, dispatch])
 
   return  !data ? 
     (
