@@ -3,12 +3,18 @@ import { ROUTES } from 'utils/routes';
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/Product.module.css";
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../features/user/userSlice';
 
 const SIZES = [4, 4.5, 5];
 
 
 
-const Product = ({price, title, images, description}) => {
+const Product = (item) => {
+
+const {price, title, images, description} = item;    
+
+const dispatch = useDispatch();
 
 const [currentImage, setCurrentImage] = useState();
 const [currentSize, setCurrentSize] = useState();
@@ -18,6 +24,10 @@ useEffect(() => {
 
     setCurrentImage(images[0]);
   }, [images]);
+
+  const addToCart = () => {
+    dispatch(addItemToCart(item));
+  };
 
 
   return (
@@ -38,7 +48,7 @@ useEffect(() => {
             </div>
         <div className={styles.info}>
             <h1 className={styles.title}>{title}</h1>
-            <div className={styles.price}>{price}</div>
+            <div className={styles.price}>{price}$</div>
             <div className={styles.color}>
                 <span>Color:</span>Green
             </div>
@@ -56,7 +66,7 @@ useEffect(() => {
             <p className={styles.description}>{description}</p>
 
             <div className={styles.actions}>
-                <button className={styles.add} disabled={!currentSize} >Add to cart </button>
+                <button onClick={addToCart} className={styles.add} disabled={!currentSize} >Add to cart </button>
                 <button className={styles.favourite}>Add to favourites</button>
             </div>
 

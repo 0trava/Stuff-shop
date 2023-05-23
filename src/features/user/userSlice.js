@@ -31,8 +31,10 @@ const userSlice = createSlice({
                 newCart = newCart.map((item) => {
                     return item.id === payload.id ? {...item, quantity: payload.quantity || item.quantity +1}
                     : item;
-                })
-            }
+                });
+            } else newCart.push({payload, quantity: 1});
+
+            state.cart = newCart;
         }
         
     },
@@ -52,4 +54,5 @@ const userSlice = createSlice({
     }
 })
 
+export const { addItemToCart} = userSlice.actions;
 export default userSlice.reducer;
