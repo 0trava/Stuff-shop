@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ROUTES } from 'utils/routes';
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,16 @@ import styles from "../../styles/Product.module.css";
 const SIZES = [4, 4.5, 5];
 
 const Product = ({price, title, images, description}) => {
-        const currentImage = images[0];
+        // const currentImage = images[0];
+
+    const [currentImage, setCurrentImage] = useState();
+
+useEffect(() => {
+    if (!images.length) return;
+
+    setCurrentImage(images[0]);
+  }, [images]);
+
 
   return (
     <section className={styles.product}>
@@ -22,7 +31,7 @@ const Product = ({price, title, images, description}) => {
                             key={i}
                             className={styles.image}
                             style = {{backgroundImage: `url(${image})`}}
-                            onClick={() => {}}
+                            onClick={() => setCurrentImage(image)}
                             />
                     ))}
                  </div>
