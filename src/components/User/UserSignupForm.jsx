@@ -13,7 +13,12 @@ const UserSignupForm = () => {
 
         <h2 className={styles.title}>Sign Up</h2>
         <form  className={styles.form}>
-
+         <div className={styles.group}>
+            <input type="email" placeholder='Your email' name="email" value="" autoComplete="off" onChange={() => {}} required/>
+            <input type="name" placeholder='Your name' name="name" value="" autoComplete="off" onChange={() => {}} required/>
+            <input type="password" placeholder='Your password' name="password" value="" autoComplete="off" onChange={() => {}} required/>
+            <input type="avatar" placeholder='Your avatar' name="avatar" value="" autoComplete="off" onChange={() => {}} required/>
+         </div>
         </form>
 
     </div>
