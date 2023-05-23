@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit"
-// import axios from "axios";
-// import {BASE_URL} from "../../utils/constants";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import axios from "axios";
+import {BASE_URL} from "../../utils/constants";
 
 export const createUser = createAsyncThunk(
     "users/createUser",
-    async (_, thunkAPI) => {
+    async (payload, thunkAPI) => {
       try {
         const res = await axios.post(`${BASE_URL}/users`, payload);
         return res.data;
