@@ -32,7 +32,7 @@ const userSlice = createSlice({
                     return item.id === payload.id ? {...item, quantity: payload.quantity || item.quantity +1}
                     : item;
                 });
-            } else newCart.push({payload, quantity: 1});
+            } else newCart.push({...payload, quantity: 1});
 
             state.cart = newCart;
         }
