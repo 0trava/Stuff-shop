@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import styles from "../../styles/Product.module.css";
 
-
-
 const SIZES = [4, 4.5, 5];
 
-const Product = ({price, title, images, description}) => {
-        // const currentImage = images[0];
 
-    const [currentImage, setCurrentImage] = useState();
+
+const Product = ({price, title, images, description}) => {
+
+const [currentImage, setCurrentImage] = useState();
+const [currentSize, setCurrentSize] = useState();
 
 useEffect(() => {
     if (!images.length) return;
@@ -46,7 +46,7 @@ useEffect(() => {
                 <span>Sizes:</span>
                 <div className={styles.list}>
                     {SIZES.map(size => (
-                        <div className={`${styles.size}`} onClick={()=>{}} key={size}>
+                        <div className={`${styles.size} ${currentSize === size ? styles.active :""}`} onClick={()=>setCurrentSize(size)} key={size}>
                             {size}
                         </div>
                     ))}
@@ -54,13 +54,15 @@ useEffect(() => {
                 </div>
             </div>
             <p className={styles.description}>{description}</p>
+
             <div className={styles.actions}>
-                <button  className={styles.add}>Add to cart</button>
-                <button  className={styles.add}>Add to favourites</button>
-                <div className={styles.bottom}>
-                    <div className={styles.purchase}>19 people purchased</div>
-                    <Link to={ROUTES.HOME}>Peturn to store</Link>
-                </div>
+                <button className={styles.add} >Add to cart </button>
+                <button className={styles.favourite}>Add to favourites</button>
+            </div>
+
+            <div className={styles.bottom}>
+                <div className={styles.purchase}>19 people purchased</div>
+                <Link to={ROUTES.HOME}>Return to store</Link>
             </div>
         </div>
     </section>
