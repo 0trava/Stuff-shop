@@ -9,8 +9,8 @@ const SingleProduct = () => {
     const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
 
     useEffect(() =>{
-        if (!isFetching && !isLoading && isSuccess) {
-            navigate.pussh(ROUTES.HOME);
+        if (!isFetching && !isLoading && !isSuccess) {
+            navigate(ROUTES.HOME);
         }
     }, [isFetching, isLoading, isSuccess])
 
