@@ -19,6 +19,9 @@ const UserSignupForm = () => {
             <input type="password" placeholder='Your password' name="password" value="" autoComplete="off" onChange={() => {}} required/>
             <input type="avatar" placeholder='Your avatar' name="avatar" value="" autoComplete="off" onChange={() => {}} required/>
          </div>
+
+         <div className={styles.link}>I already have an account</div>
+         <button type='submit' className={styles.submit}></button>
         </form>
 
     </div>
