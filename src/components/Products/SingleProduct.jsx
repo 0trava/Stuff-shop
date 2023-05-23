@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import Product from './Product';
+import Products from './Products';
 
 const SingleProduct = () => {
     const {id} = useParams();
@@ -15,12 +16,15 @@ const SingleProduct = () => {
         }
     }, [isFetching, isLoading, isSuccess])
 
+    useEffect
+
   return  !data ? 
     (
         <section className="preloader">Loading...</section>
     ) : (
     <>
         <Product {...data} />
+        <Products products={list} amount={5} title="Trending" />
     </>);
 
 }
