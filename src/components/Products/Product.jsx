@@ -1,24 +1,32 @@
 import React from 'react';
+import { ROUTES } from 'utils/routes';
+import { Link } from "react-router-dom";
 
 import styles from "../../styles/Product.module.css";
+
+
 
 const SIZES = [4, 4.5, 5];
 
 const Product = ({price, title, images, description}) => {
+        const currentImage = images[0];
+
   return (
     <section className={styles.product}>
         <div className={styles.images}>
             <div  className={styles.current}
                   style = {{backgroundImage: `url(${currentImage})`}} />
-            {images.map((image, i) => (
-                <div 
-                    key={i}
-                    className={styles.image}
-                    style = {{backgroundImage: `url(${image})`}}
-                    onClick={() => {}}
-                    />
-            ))}
-        </div>
+                  <div className={styles["images-list"]}>
+                    {images.map((image, i) => (
+                        <div 
+                            key={i}
+                            className={styles.image}
+                            style = {{backgroundImage: `url(${image})`}}
+                            onClick={() => {}}
+                            />
+                    ))}
+                 </div>
+            </div>
         <div className={styles.info}>
             <h1 className={styles.title}>{title}</h1>
             <div className={styles.price}>{price}</div>
@@ -37,11 +45,12 @@ const Product = ({price, title, images, description}) => {
                 </div>
             </div>
             <p className={styles.description}>{description}</p>
-            <div className={styles.action}>
+            <div className={styles.actions}>
                 <button  className={styles.add}>Add to cart</button>
                 <button  className={styles.add}>Add to favourites</button>
                 <div className={styles.bottom}>
-                    <div></div>
+                    <div className={styles.purchase}>19 people purchased</div>
+                    <Link to={ROUTES.HOME}>Peturn to store</Link>
                 </div>
             </div>
         </div>
@@ -49,4 +58,4 @@ const Product = ({price, title, images, description}) => {
   )
 }
 
-export default Product
+export default Product;
