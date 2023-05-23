@@ -4,6 +4,9 @@
 <p>This project is my way of learning REACT.JS + REDUX.</p>
 <p>Design maket is available - <a href="https://www.figma.com/file/7itpNsHVP5LPUpK4ENDYkv/Shop?node-id=0%3A1&t=i8nKSaWzeNTqTOnX-0">here</a></p>
 
+![image](https://github.com/0trava/Stuff-shop/assets/102797527/2b7e7dcf-9d65-4853-bca8-122f935f1b38)
+
+
 
 
 
