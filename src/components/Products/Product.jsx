@@ -37,7 +37,13 @@ const Product = ({price, title, images, description}) => {
                 </div>
             </div>
             <p className={styles.description}>{description}</p>
-            
+            <div className={styles.action}>
+                <button  className={styles.add}>Add to cart</button>
+                <button  className={styles.add}>Add to favourites</button>
+                <div className={styles.bottom}>
+                    <div></div>
+                </div>
+            </div>
         </div>
     </section>
   )
