@@ -1,10 +1,18 @@
 import { useGetProductQuery } from 'features/api/apiSlice';
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ROUTES } from 'utils/routes';
 
 const SingleProduct = () => {
     const {id} = useParams();
-    const {data} = useGetProductQuery({id})
+    const navigate = useNavigate();
+    const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
+
+    useEffect(() =>{
+        if (!isFetching && !isLoading && isSuccess) {
+            navigate.pussh(ROUTES.HOME);
+        }
+    }, [isFetching, isLoading, isSuccess])
 
   return (
     <div>SingleProduct</div>
