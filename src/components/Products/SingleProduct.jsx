@@ -4,10 +4,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import Product from './Product';
 import Products from './Products';
+import { useDispatch, useSelector } from 'react-redux';
+import { getRelatedProducts } from 'features/products/productsSlice';
 
 const SingleProduct = () => {
     const {id} = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { related} = useSelector(({ products}) => products)
+
+
     const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
 
     useEffect(() =>{
@@ -16,7 +22,11 @@ const SingleProduct = () => {
         }
     }, [isFetching, isLoading, isSuccess])
 
-    useEffect
+    useEffect(() =>{
+        if (data) {
+            dispatch(getRelatedProducts(data.category.id))
+        }
+    }, [data])
 
   return  !data ? 
     (
@@ -24,7 +34,7 @@ const SingleProduct = () => {
     ) : (
     <>
         <Product {...data} />
-        <Products products={list} amount={5} title="Trending" />
+        <Products products={related} amount={5} title="Relared product" />
     </>);
 
 }
