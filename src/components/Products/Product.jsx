@@ -56,7 +56,7 @@ useEffect(() => {
             <p className={styles.description}>{description}</p>
 
             <div className={styles.actions}>
-                <button className={styles.add} >Add to cart </button>
+                <button className={styles.add} disabled={!currentSize} >Add to cart </button>
                 <button className={styles.favourite}>Add to favourites</button>
             </div>
 
