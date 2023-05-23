@@ -11,7 +11,7 @@ const SingleProduct = () => {
     const {id} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { related} = useSelector(({ products}) => products)
+    const { related } = useSelector(({ products }) => products);
 
 
     const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
@@ -34,7 +34,7 @@ const SingleProduct = () => {
     ) : (
     <>
         <Product {...data} />
-        <Products products={related} amount={5} title="Relared product" />
+        <Products products={related} amount={5} title="Related product" />
     </>);
 
 }
