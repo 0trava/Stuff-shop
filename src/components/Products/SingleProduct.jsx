@@ -11,7 +11,7 @@ const SingleProduct = () => {
     const {id} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { related } = useSelector(({ products }) => products);
+    const { list, related } = useSelector(({ products }) => products);
 
 
     const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
@@ -23,10 +23,11 @@ const SingleProduct = () => {
     }, [isFetching, isLoading, isSuccess, navigate])
 
     useEffect(() =>{
-        if (data) {
-            dispatch(getRelatedProducts(data.category.id))
-        }
-    }, [data, dispatch])
+        if (!data || list.lenght) return;
+
+            dispatch(getRelatedProducts(data.category.id));
+
+    }, [data, dispatch, list.lenght])
 
   return  !data ? 
     (
