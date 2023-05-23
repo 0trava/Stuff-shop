@@ -2,7 +2,9 @@ import React from 'react';
 
 import styles from "../../styles/Product.module.css";
 
-const Product = ({price, title, images}) => {
+const SIZES = [4, 4.5, 5];
+
+const Product = ({price, title, images, description}) => {
   return (
     <section className={styles.product}>
         <div className={styles.images}>
@@ -20,6 +22,22 @@ const Product = ({price, title, images}) => {
         <div className={styles.info}>
             <h1 className={styles.title}>{title}</h1>
             <div className={styles.price}>{price}</div>
+            <div className={styles.color}>
+                <span>Color:</span>Green
+            </div>
+            <div className={styles.sizes}>
+                <span>Sizes:</span>
+                <div className={styles.list}>
+                    {SIZES.map(size => (
+                        <div className={`${styles.size}`} onClick={()=>{}} key={size}>
+                            {size}
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+            <p className={styles.description}>{description}</p>
+            
         </div>
     </section>
   )
