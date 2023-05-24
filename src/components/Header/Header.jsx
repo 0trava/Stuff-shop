@@ -15,9 +15,7 @@ const  Header = () => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        if (!currentUser) {
-            dispatch(toggleForm (true));
-        };
+        if (!currentUser) dispatch(toggleForm(true));
 
     };
 
