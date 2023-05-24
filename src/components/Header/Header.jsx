@@ -28,7 +28,7 @@ const  Header = () => {
             </Link>
         </div>
         <div className={styles.info}>
-            <div className={styles.user} onclick={handleClick}>
+            <div className={styles.user} onClick={handleClick}>
                 <div  className={styles.avatar} style={{backgroundImage: `url(${AVATAR})`}}/>
                 <div className={styles.username}>Guest</div>
             </div>
