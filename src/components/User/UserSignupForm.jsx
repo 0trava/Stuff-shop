@@ -25,10 +25,10 @@ const UserSignupForm = () => {
         <h2 className={styles.title}>Sign Up</h2>
         <form  className={styles.form}>
          <div className={styles.group}>
-            <input type="email" placeholder='Your email' name="email" value="" autoComplete="off" onChange={handleChange} required/>
-            <input type="name" placeholder='Your name' name="name" value="" autoComplete="off" onChange={handleChange} required/>
-            <input type="password" placeholder='Your password' name="password" value="" autoComplete="off" onChange={ handleChange} required/>
-            <input type="avatar" placeholder='Your avatar' name="avatar" value="" autoComplete="off" onChange={handleChange} required/>
+            <input type="email" placeholder='Your email' name="email" value={values.email} autoComplete="off" onChange={handleChange} required/>
+            <input type="name" placeholder='Your name' name="name" value={values.name} autoComplete="off" onChange={handleChange} required/>
+            <input type="password" placeholder='Your password' name="password" value={values.password} autoComplete="off" onChange={ handleChange} required/>
+            <input type="avatar" placeholder='Your avatar' name="avatar" value={values.avatar} autoComplete="off" onChange={handleChange} required/>
          </div>
 
          <div className={styles.link}>I already have an account</div>
