@@ -16,6 +16,20 @@ export const createUser = createAsyncThunk(
   );
 
 
+  export const updateUser = createAsyncThunk(
+    "users/updateUser",
+    async (payload, thunkAPI) => {
+      try {
+        const res = await axios.put(`${BASE_URL}/users/${payload.id}`, payload);
+        return res.data;
+      } catch (err) {
+        console.log(err);
+        return thunkAPI.rejectWithValue(err);
+      }
+    }
+  );
+
+
   export const loginUser = createAsyncThunk(
     "users/loginUser",
     async (payload, thunkAPI) => {
@@ -23,7 +37,7 @@ export const createUser = createAsyncThunk(
         const res = await axios.post(`${BASE_URL}/auth/login`, payload);
         const login = await axios(`${BASE_URL}/auth/profile`, { 
             headers: {
-                "Authorization": `Bearer ${res.access_token}`
+                "Authorization": `Bearer ${res.data.access_token}`
             }
         })
         return login.data;
@@ -74,16 +88,12 @@ const userSlice = createSlice({
     },
 
     extraReducers:(builder) => {
-        // builder.addCase(getCategories.pending, (state) => {
-        //     state.isLoading = true;
-        // })
-        builder.addCase(createUser.fulfilled, addCurrentUser)
 
+        builder.addCase(createUser.fulfilled, addCurrentUser)
         builder.addCase(loginUser.fulfilled, addCurrentUser)
-        // builder.addCase(getCategories.rejected, (state) => {
-        //     state.isLoading = false;
-        //     console.log("404")
-        // })
+        builder.addCase(updateUser.fulfilled, addCurrentUser)
+
+
     }
 })
 
