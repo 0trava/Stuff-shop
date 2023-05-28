@@ -14,6 +14,10 @@ const  Header = () => {
     const { currentUser } = useSelector(({user}) => user);
     const [values, setValues] = useState({name: "Guest", avatar: AVATAR });
 
+
+
+
+
     useEffect(() => {
         if(!currentUser) return;
         setValues(currentUser);
