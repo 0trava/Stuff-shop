@@ -13,8 +13,10 @@ const Cart = () => {
         <h2 className={styles.title}>Your cart</h2>
 
         {!cart.lenght ? 
-        ( <div  className={styles.empty}>Here is empty</div>):
-        ( <div  className={styles.list}>
+        ( <div  className={styles.empty}>Here is empty</div>
+        ):( 
+            <>
+            <div  className={styles.list}>
             {cart.map((item) => {
                 const {title, category, images, price, id, quantity} = item
                 return <div  className={styles.item} key={id}>
@@ -24,7 +26,7 @@ const Cart = () => {
                        <div  className={styles.category}>{category}</div>
                     </div>
 
-                    <div  className={styles.price}>{price}</div>
+                    <div  className={styles.price}>{price}$</div>
                     <div className={styles.quantity}>
                        <div  className={styles.minus}>
                             <svg className='icon'>
@@ -41,12 +43,27 @@ const Cart = () => {
                        </div>
                     </div>
 
-                    <div  className={styles.price}>{price}</div>
+                    <div  className={styles.total}>{price*quantity}$</div>
 
+                    <div  className={styles.close}>
+                            <svg className='icon'>
+                                <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#closw`}/>
+                            </svg>
+                       </div>
                 </div>
             })}
-        </div>)
-        }
+        </div>
+        <div  className={styles.action}>
+           <div  className={styles.total}>
+            TOTAL PRICE: {" "}
+            <span>
+                
+            </span>
+            </div>
+        </div>         
+        </>
+        
+        )}
 
     </section>
   )
