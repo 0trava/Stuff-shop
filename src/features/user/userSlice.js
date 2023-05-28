@@ -26,13 +26,18 @@ export const createUser = createAsyncThunk(
                 "Authorization": `Bearer ${res.access_token}`
             }
         })
-        return res.data;
+        return login.data;
       } catch (err) {
         console.log(err);
         return thunkAPI.rejectWithValue(err);
       }
     }
   );
+
+
+  const addCurrentUser = (state, {payload}) => { state.currentUser = payload;};
+
+
 
 const userSlice = createSlice({
     name: 'user',
@@ -68,9 +73,9 @@ const userSlice = createSlice({
         // builder.addCase(getCategories.pending, (state) => {
         //     state.isLoading = true;
         // })
-        builder.addCase(createUser.fulfilled, (state, {payload}) => {
-            state.currentUser = payload;
-        })
+        builder.addCase(createUser.fulfilled, addCurrentUser)
+
+        builder.addCase(loginUser.fulfilled, addCurrentUser)
         // builder.addCase(getCategories.rejected, (state) => {
         //     state.isLoading = false;
         //     console.log("404")

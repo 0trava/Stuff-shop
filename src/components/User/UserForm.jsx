@@ -4,16 +4,17 @@ import UserSignupForm from './UserSignupForm';
 
 import styles from "../../styles/User.module.css";
 import { toggleForm } from 'features/user/userSlice';
+import UserLoginForm from './UserLoginForm';
 
 const UserForm = () => {
   const dispatch = useDispatch();
-  const { showForm } = useSelector(({user}) => user);
+  const { showForm, formType } = useSelector(({user}) => user);
 
   const closeForm = () => dispatch(toggleForm(false));
 
   return  showForm ? (<>
         <div className={styles.overlay} onClick={closeForm}/>
-        <UserSignupForm closeForm={closeForm}/> 
+        {formType === 'signup' ? (<UserSignupForm closeForm={closeForm}/>) : (<UserLoginForm closeForm={closeForm}/> )}
         </>) :  (<></>);
     
 
