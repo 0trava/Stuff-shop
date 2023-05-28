@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Stuff-shop/static/css/main.c548fa99.css",
-    "main.js": "/Stuff-shop/static/js/main.4c9ab3f7.js",
+    "main.css": "/Stuff-shop/static/css/main.b34a40b6.css",
+    "main.js": "/Stuff-shop/static/js/main.7e47ea5a.js",
     "static/media/computer.png": "/Stuff-shop/static/media/computer.5e56530d0ea3793fd73d.png",
     "static/media/banner.png": "/Stuff-shop/static/media/banner.60b57e7c22678c62bf30.png",
     "static/media/avatar.jpg": "/Stuff-shop/static/media/avatar.4bc3b938691acbda7100.jpg",
@@ -9,11 +9,11 @@
     "static/media/shoe.png": "/Stuff-shop/static/media/shoe.db601c8f04844976b606.png",
     "static/media/logo.svg": "/Stuff-shop/static/media/logo.fb6afde46b43989ab58d298634d1c757.svg",
     "index.html": "/Stuff-shop/index.html",
-    "main.c548fa99.css.map": "/Stuff-shop/static/css/main.c548fa99.css.map",
-    "main.4c9ab3f7.js.map": "/Stuff-shop/static/js/main.4c9ab3f7.js.map"
+    "main.b34a40b6.css.map": "/Stuff-shop/static/css/main.b34a40b6.css.map",
+    "main.7e47ea5a.js.map": "/Stuff-shop/static/js/main.7e47ea5a.js.map"
   },
   "entrypoints": [
-    "static/css/main.c548fa99.css",
-    "static/js/main.4c9ab3f7.js"
+    "static/css/main.b34a40b6.css",
+    "static/js/main.7e47ea5a.js"
   ]
 }
