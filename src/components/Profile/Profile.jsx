@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../features/user/userSlice";
 
 import styles from "../../styles/Profile.module.css";
 
 const Profile = () => {
     const dispatch = useDispatch();
-    const {curentUser} = useState(({user}) => user);
+    const {currentUser} = useSelector(({user}) => user);
 
     const [values, setValues] = useState({
       name: "",
@@ -33,8 +33,8 @@ const Profile = () => {
 
 
   return (
-    <div className={styles.profile}>
-        {!curentUser ? <span>You need to log in</span> : (
+    <section className={styles.profile}>
+        {!currentUser ? <span>You need to log in</span> : (
              <form className={styles.form} onSubmit={handleSubmit}>
              <div className={styles.group}>
                <input
@@ -86,14 +86,14 @@ const Profile = () => {
      
      
              <button type="submit" className={styles.submit}>
-               Create an account
+               Update
              </button>
            </form>
 
 
 
         )}
-    </div>
+    </section>
 
   )
 }
