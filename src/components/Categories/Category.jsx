@@ -33,6 +33,7 @@ const Category = () => {
 
   const { data = [], isLoading, isSuccess } = useGetProductsQuery(params);
 
+// -----------------------------------------------------------------------------------------------
   useEffect(() => {
     if (!id) return;
 
@@ -43,6 +44,8 @@ const Category = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
+
+
   useEffect(() => {
     if (isLoading) return;
 
@@ -50,6 +53,8 @@ const Category = () => {
 
     setItems((_items) => [..._items, ...data]);
   }, [data, isLoading]);
+
+
 
   useEffect(() => {
     if (!id || !list.length) return;
@@ -62,6 +67,8 @@ const Category = () => {
   const handleChange = ({ target: { value, name } }) => {
     setValues({ ...values, [name]: value });
   };
+
+//   ----------------------------------------------------------------
 
   const handleSubmit = (e) => {
     e.preventDefault();
